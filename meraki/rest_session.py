@@ -180,7 +180,7 @@ class RestSession(object):
                         response.close()
                     if self._logger:
                         self._logger.info(f'{method} {abs_url}')
-                    response = self._req_session.request(method, abs_url, allow_redirects=False, **kwargs)
+                    response = self._req_session.request(method, abs_url, allow_redirects=False, verify=False, **kwargs)
                     reason = response.reason if response.reason else ''
                     status = response.status_code
                 except requests.exceptions.RequestException as e:
